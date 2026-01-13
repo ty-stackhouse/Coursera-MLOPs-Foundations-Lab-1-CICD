@@ -11,6 +11,12 @@ from main import add_cli
 def test_add():
     assert add(1, 2) == 3
 
+def test_add_cli():
+    """Tests the command-line interface add_cli option"""
+    runner = CliRunner()
+    result = runner.invoke(add_cli, ["--help"])
+    assert result.exit_code == 0
+    assert "Show this message and exit." in result.output
 
 def test_help():
     """Tests the command-line interface help message."""
